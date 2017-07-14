@@ -19,6 +19,7 @@ Then, just run the binary created default is
 ## Implemented commands
 Command | State
 ------------ | -------------
+echo | todo
 pwd | todo
 ls | todo
 cd | todo
