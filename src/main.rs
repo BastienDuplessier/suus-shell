@@ -16,6 +16,18 @@ fn main_loop() {
     }
 }
 
+fn parse_input() -> (String, String) {
+    let mut line = String::new();
+    let _ = io::stdin().read_line(&mut line);
+    let mut iter = line.trim_matches('\n').splitn(2, " ");
+    let command = String::from(iter.next().unwrap());
+    let args = match iter.next() {
+        Some(x) => x,
+        None => ""
+    };
+    (command, String::from(args))
+}
+
 fn exit_loop() {
     println!("Goodbye !!");
 }
