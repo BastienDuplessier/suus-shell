@@ -11,6 +11,7 @@ fn main_loop() {
     let _ = io::stdin().read_line(&mut line);
     match line.trim_matches('\n') {
         "exit" => exit_loop(),
+        "echo" => echo(),
         command => not_found(command)
     }
 }
@@ -21,5 +22,10 @@ fn exit_loop() {
 
 fn not_found(command: &str) {
     println!("Command {} not found", command);
+    main_loop()
+}
+
+fn echo() {
+    println!("Salut");
     main_loop()
 }
