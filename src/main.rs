@@ -7,9 +7,8 @@ fn main() {
 }
 
 fn main_loop() {
-    let mut line = String::new();
-    let _ = io::stdin().read_line(&mut line);
-    match line.trim_matches('\n') {
+    let (command, args) = parse_input();
+    match command.as_str() {
         "exit" => exit_loop(),
         "echo" => echo(),
         command => not_found(command)
