@@ -10,7 +10,7 @@ fn main_loop() {
     let (command, args) = parse_input();
     match command.as_str() {
         "exit" => exit_loop(),
-        "echo" => echo(),
+        "echo" => echo(args),
         command => not_found(command)
     }
 }
@@ -36,7 +36,7 @@ fn not_found(command: &str) {
     main_loop()
 }
 
-fn echo() {
-    println!("Salut");
+fn echo(text:String) {
+    println!("{}", text);
     main_loop()
 }

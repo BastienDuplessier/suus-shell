@@ -20,7 +20,7 @@ Then, just run the binary created default is
 Command | State
 ------------ | -------------
 exit | done
-echo | todo
+echo | done
 pwd | todo
 ls | todo
 cd | todo
