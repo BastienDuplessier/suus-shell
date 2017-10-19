@@ -1,4 +1,5 @@
 use std::io;
+use std::io::Write;
 
 fn main() {
     println!("Welcome into the SUUS Shell.");
@@ -7,6 +8,7 @@ fn main() {
 }
 
 fn main_loop() {
+    print_prompt();
     let (command, args) = parse_input();
     match command.as_str() {
         "exit" => exit_loop(),
@@ -18,6 +20,13 @@ fn main_loop() {
             main_loop()
         }
     }
+}
+
+fn print_prompt() {
+    let current_dir = std::env::current_dir().unwrap();
+    print!("{}", current_dir.display());
+    print!(" |> ");
+    io::stdout().flush().ok();
 }
 
 fn parse_input() -> (String, String) {
